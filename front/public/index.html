@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>
+    <%= webpackConfig.name %>
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .favicon-icon {
+      display: none;
+    }
+
+    .favicon-icon i {
+      color: #4CAF50;
+      font-size: 16px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var canvas = document.createElement('canvas');
+      canvas.width = 32;
+      canvas.height = 32;
+      var ctx = canvas.getContext('2d');
+
+      ctx.beginPath();
+      ctx.arc(16, 16, 16, 0, 2 * Math.PI);
+      ctx.fillStyle = '#4CAF50';
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(16, 10);
+      ctx.bezierCurveTo(16, 8, 14, 6, 10, 6);
+      ctx.bezierCurveTo(4, 6, 4, 14, 4, 14);
+      ctx.bezierCurveTo(4, 18, 8, 22, 16, 26);
+      ctx.bezierCurveTo(24, 22, 28, 18, 28, 14);
+      ctx.bezierCurveTo(28, 14, 28, 6, 22, 6);
+      ctx.bezierCurveTo(18, 6, 16, 8, 16, 10);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fill();
+
+      var link = document.createElement('link');
+      link.type = 'image/x-icon';
+      link.rel = 'shortcut icon';
+      link.href = canvas.toDataURL("image/x-icon");
+      document.getElementsByTagName('head')[0].appendChild(link);
+    });
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= webpackConfig.name %> doesn't work properly without JavaScript enabled. Please enable it
+        to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <div class="favicon-icon">
+    <i class="fas fa-heartbeat"></i>
+  </div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
